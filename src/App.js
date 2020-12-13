@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import React,{useState} from 'react'
 import './App.css';
+import copy from "copy-to-clipboard";
 
 function App() {
+  const [input ,setInput] = useState("");
+
+  const handleInput=(e)=>{
+
+    setInput(e.target.value)
+  }
+  
+const hadnleCopy=()=>{
+  copy(input)
+}
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>text</h1>
+      <textarea value={input} onChange={handleInput}>
+
+      </textarea>
+
+      <button  onClick={hadnleCopy} >
+        copy to clipboard
+        </button>
+    
     </div>
   );
 }
